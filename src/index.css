@@ -445,6 +445,24 @@ p {
   animation: glow 0.5s forwards ease-out;
 }
 
+@keyframes carousel-slide {
+
+  0%,
+  16.6667% {
+    transform: translateX(0%);
+  }
+
+  37.5%,
+  45.84% {
+    transform: translateX(-100%);
+  }
+
+  75%,
+  91.6667% {
+    transform: translateX(-200%);
+  }
+}
+
 @keyframes line-1 {
   10% {
     transform: translateZ(0) rotate(0);
@@ -585,7 +603,7 @@ p {
   }
 }
 
-@keyframes slide-in-from-left {
+@keyframes slide-in {
   to {
     transform: translateX(0);
   }

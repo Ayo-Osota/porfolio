@@ -15,7 +15,7 @@ const ProjectCard = ({ name, description, stacks, coverArt, projectRepoLInk, pro
             </div>
             <article>
                 <h2 className="fs-secondary-heading fw-bold ff-header">{name}</h2>
-                <p fs-400 fw-medium>{description}</p>
+                <p className="fs-400 fw-medium">{description}</p>
                 <div className="stacks-container">
                     <p>Built with:</p>
                     <div className="flex">
