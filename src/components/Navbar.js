@@ -10,10 +10,10 @@ const Navbar = ({isSidebarOpen, toggleSidebar}) => {
     const hamburgerButton = useRef(null);
 
     const animateHamburger = () => {
-        if (hamburgerButton.current.classList.contains(cls.open)) {
+        if (!isSidebarOpen) {
             hamburgerButton.current.classList.remove(btnClass);
             btnClass = cls.close;
-        } else if (hamburgerButton.current.classList.contains(cls.close)) {
+        } else {
             hamburgerButton.current.classList.remove(btnClass);
             btnClass = cls.open;
         }
@@ -24,7 +24,7 @@ const Navbar = ({isSidebarOpen, toggleSidebar}) => {
 
     useEffect(() => {
         animateHamburger();
-    }, [isSidebarOpen]);
+    });
 
     return (
         <Topnav className='container'>

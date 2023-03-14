@@ -20,7 +20,6 @@ const ProjectCard = ({ name, description, stacks, coverArt, projectRepoLInk, pro
                     <p>Built with:</p>
                     <div className="flex">
                         {sortedStacks.map((stack, i) => {
-                            console.log(i, stack);
                             return (
                                 <i key={i} className={`devicon-${stack}-plain${stack !== "javascript" ? "-wordmark" : ""} colored`}
                                 ></i>
@@ -30,9 +29,9 @@ const ProjectCard = ({ name, description, stacks, coverArt, projectRepoLInk, pro
                 </div>
                 <div className="project_button-container">
                     <a onMouseLeave={buttonMouseLeave} onMouseMove={buttonAnimation} 
-                    href={projectRepoLInk} target="_blank" className="button">View code</a>
+                    href={projectRepoLInk} target="_blank" rel="noreferrer" className="button">View code</a>
                     <a onMouseLeave={buttonMouseLeave} onMouseMove={buttonAnimation} 
-                    href={projectLiveLink} target="_blank" className="button">View live</a>
+                    href={projectLiveLink} target="_blank" rel="noreferrer" className="button">View live</a>
                 </div>
             </article>
         </Card>

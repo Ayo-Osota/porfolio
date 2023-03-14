@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import heroImage from "../assets/hero-image.png";
 import htmlReactImage from "../assets/html-to-react.png";
+import cv from "../assets/CV.docx";
 import { useGlobalContext } from "../context/context";
 
 const HeroSection = () => {
@@ -24,9 +25,14 @@ const HeroSection = () => {
                     that engage your audience. Let's collaborate to create a web experience
                     that truly stands out - whether revamping an existing site or starting from scratch.
                 </p>
-                <button onMouseLeave={buttonMouseLeave} onMouseMove={buttonAnimation} className="button">
+                <a
+                    href={cv}
+                    download="Osota_Ayomikun CV"
+                    onMouseLeave={buttonMouseLeave}
+                    onMouseMove={buttonAnimation}
+                    className="button">
                     Download CV (70kb)
-                </button>
+                </a>
             </div>
             <div className="hero-banner" style={{ backgroundImage: `url(${htmlReactImage})` }}>
                 <div>
@@ -72,8 +78,9 @@ const HeroContainer = styled.section`
 }
 
 .button {
-    opacity: 0;
-    animation: fade-in 1s ease-in forwards;
+    margin-left: 0.125rem;
+    opacity: 1;
+    animation: fade-in 1s ease-in;
 }
 
 .hero-banner {

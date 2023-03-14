@@ -18,7 +18,7 @@ const Header = () => {
     return (
         <header>
             <Navbar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar}/>
-            <Sidenav isSidebarOpen={isSidebarOpen}/>
+            <Sidenav isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar}/>
         </header>
     )
 }

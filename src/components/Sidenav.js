@@ -2,7 +2,7 @@ import { navLinks, socialMedia } from "../data";
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
-const Sidenav = ({ isSidebarOpen }) => {
+const Sidenav = ({ isSidebarOpen, toggleSidebar }) => {
     return (
         <SidebarContainer>
             <aside className={isSidebarOpen ? "sidebar show-sidebar" : "sidebar"}>
@@ -13,8 +13,8 @@ const Sidenav = ({ isSidebarOpen }) => {
                             return (
                                 <li key={id}>
                                     {type === "route" ?
-                                        <Link className='nav-link' to={url}>{text}</Link> :
-                                        <a className='nav-link' href={url}>{text}</a>
+                                        <Link onClick={toggleSidebar} className='nav-link' to={url}>{text}</Link> :
+                                        <a onClick={toggleSidebar} className='nav-link' href={url}>{text}</a>
                                     }
                                 </li>
                             )
@@ -27,7 +27,7 @@ const Sidenav = ({ isSidebarOpen }) => {
                             const { id, icon, link } = socialMedium;
                             return (
                                 <li key={id}>
-                                    <a href={link}>{icon}</a>
+                                    <a onClick={toggleSidebar} href={link}>{icon}</a>
                                 </li>
                             )
                         })}

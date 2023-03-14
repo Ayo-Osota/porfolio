@@ -2,9 +2,11 @@ import styled from "styled-components";
 import contactImage from "../assets/digital-lifestyle-pana.png"
 import { useGlobalContext } from "../context/context";
 import { socialMedia } from "../data";
+import { useForm, ValidationError } from '@formspree/react';
 
 const Contact = () => {
-    const {buttonAnimation, buttonMouseLeave} = useGlobalContext();
+    const { buttonAnimation, buttonMouseLeave } = useGlobalContext();
+    const [state, handleSubmit] = useForm("xjvdojvv");
 
     return (
         <ContactSection id="contact" className="section-mt container">
@@ -12,18 +14,30 @@ const Contact = () => {
                 Get In Touch If You're Looking For A  <span className="text-accent">Front End Developer</span>
             </h1>
             <div className="even-columns">
-                <form action="">
-                    <div className="form-control">
-                        <input type="text" name="name" placeholder="Enter name" />
-                    </div>
-                    <div className="form-control">
-                        <input type="text" name="email" placeholder="Enter email address" />
-                    </div>
-                    <div className="form-control">
-                        <textarea cols="30" rows="10" type="textarea" name="message" placeholder="Write message" ></textarea>
-                    </div>
-                    <button onMouseLeave={buttonMouseLeave} onMouseMove={buttonAnimation} type="submit" className="button">Send message</button>
-                </form>
+                {state.succeeded ?
+                    <p className="text-center">Thank you for contacting us! We have received your message and will respond to you as soon as possible.</p> :
+                    <form onSubmit={handleSubmit}>
+                        <div className="form-control">
+                            <input type="text" name="name" placeholder="Enter name" />
+                        </div>
+                        <div className="form-control">
+                            <input type="text" name="email" placeholder="Enter email address" />
+                            <ValidationError
+                                prefix="Email"
+                                field="email"
+                                errors={state.errors}
+                            />
+                        </div>
+                        <div className="form-control">
+                            <textarea cols="30" rows="10" type="textarea" name="message" placeholder="Write message" ></textarea>
+                            <ValidationError
+                                prefix="Message"
+                                field="message"
+                                errors={state.errors}
+                            />
+                        </div>
+                        <button onMouseLeave={buttonMouseLeave} onMouseMove={buttonAnimation} type="submit" className="button" disabled={state.submitting}>Send message</button>
+                    </form>}
                 <div>
                     <img src={contactImage} alt="Digital lifestyle" />
                     <p className="fs-500 text-center">
@@ -107,6 +121,10 @@ textarea {
 .social-links-wrapper svg {
     font-size: var(--fs-700);
     color: #E9DCE5;
+}
+
+.form-control div {
+    color: red;
 }
 
 @media (min-width: 50em) {

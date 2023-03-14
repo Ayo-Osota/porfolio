@@ -5,6 +5,8 @@ import minimumLivingCostCover from "./assets/covers/minimum-living-cost.png";
 import pawCareCover from "./assets/covers/paw-care.jpg";
 
 import pawCareSite from "./assets/site-image/paw-care.jpg";
+import artsySite from "./assets/site-image/artsy.jpg";
+import minimumLivingCostSite from "./assets/site-image/minimum-living-cost.jpg";
 
 
 import {
@@ -168,10 +170,10 @@ const testimonials = [
     {
         id: "t1",
         name: "Harry Wilson",
-        designation: "Property Owner",
-        siteName: "musica",
+        designation: "Photographer",
+        siteName: "artsy",
         siteLink: "",
-        siteImage: pawCareSite,
+        siteImage: artsySite,
         feedback: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum nisl et nunc facilisis, a commodo eros mollis. Nunc vel pellentesque est. Curabitur at odio sit amet libero vulputate efficitur ac nec justo. Nulla vitae mauris quam. Nulla quam massa, faucibus id pretium ac, mattis eu velit. Donec sed risus a lacus fringilla finibus.",
         pfp: "https://res.cloudinary.com/dqtpsjrzn/image/upload/v1672530403/samples/people/smiling-man.jpg"
     },
@@ -179,17 +181,17 @@ const testimonials = [
         id: "t2",
         name: "Sofiat Guy",
         designation: "Tenant",
-        siteName: "musica",
+        siteName: "minimum living cost",
         siteLink: "",
-        siteImage: pawCareSite,
+        siteImage: minimumLivingCostSite,
         feedback: "I want with this review to describe my personal experience after renting an apartment through MrLodge during the second semester of 2022. The price was decent regarding the service of MrLodge and the quality of the apartment. My apartment was at Perchastraße, in a recently constructed building.",
         pfp: "https://res.cloudinary.com/dqtpsjrzn/image/upload/e_improve,w_300,h_600,c_thumb,g_auto/v1672530407/samples/people/bicycle.jpg"
     },
     {
         id: "t3",
-        name: "Ayo Osota",
-        designation: "Real Estate Investor",
-        siteName: "musica",
+        name: "Veey",
+        designation: "Designer",
+        siteName: "paw care",
         siteLink: "",
         siteImage: pawCareSite,
         feedback: "It was clean, safe, quiet, spacious, thermally insulated, very warm during freezing temperatures of December (down to -14 Celsius during the night), cool during the warmer months of summer. It had a great view of a quiet green garden and a wonderful balcony.",

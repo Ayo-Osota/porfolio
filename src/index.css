@@ -163,7 +163,7 @@ p {
   background: none;
   color: var(--clr-primary-400);
   border: 1px solid var(--clr-grey-300);
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .button::after {
@@ -396,7 +396,7 @@ p {
   padding: calc(2.5px / 2);
 }
 
-.line:after {
+.line::after {
   content: "";
   display: block;
   width: 100%;
@@ -610,6 +610,10 @@ p {
 }
 
 @keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  
   to {
     opacity: 1;
   }
