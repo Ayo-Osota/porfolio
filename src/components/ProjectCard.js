@@ -6,6 +6,10 @@ const ProjectCard = ({ name, description, stacks, coverArt, projectRepoLInk, pro
     const {buttonAnimation, buttonMouseLeave} = useGlobalContext();
     const sortedStacks = stacks.map(stack => stack.toLowerCase()).sort();
 
+    window.addEventListener('scroll', () => {
+        document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
+      }, false);
+
     return (
         <Card>
             <div
@@ -45,6 +49,13 @@ display: grid;
 grid-template-columns: 0.5fr 1fr;
 gap: 2rem;
 background-color: var(--clr-bg-light);
+// animation: lighten 0.1s forwards infinite;
+// animation-play-state: paused;
+//   /* Bind the animation to scroll */
+//   animation-delay: calc(var(--scroll) * -1s);
+//   /* These last 2 properites clean up overshoot weirdness */
+//   animation-iteration-count: 1;
+//   animation-fill-mode: both;
 
 .image-container {
     width: 100%;
@@ -81,6 +92,7 @@ article {
 }
 
 .project_button-container {
+    margin-top: 0.5rem;
     display: flex;
     gap: 2.5rem;
 }

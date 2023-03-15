@@ -95,6 +95,7 @@ body {
 body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  min-height: 500vh;
 }
 
 /* A elements that don't have a class get default styles */
@@ -616,5 +617,11 @@ p {
   
   to {
     opacity: 1;
+  }
+}
+
+@keyframes lighten {
+  to {
+    background-color: var(--clr-bg-light);
   }
 }

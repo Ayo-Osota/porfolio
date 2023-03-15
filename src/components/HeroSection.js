@@ -7,6 +7,10 @@ import { useGlobalContext } from "../context/context";
 const HeroSection = () => {
     const { buttonAnimation, buttonMouseLeave } = useGlobalContext();
 
+    window.addEventListener('scroll', () => {
+        document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
+      }, false);
+
     return (
         <HeroContainer id="about" className="container even-columns section-mt">
             <div className="flow">
@@ -140,7 +144,13 @@ const HeroContainer = styled.section`
 
 .hero-banner > div:nth-child(2) > img {
     transform: translate(100%);
-    animation: slide-in 1s forwards;
+    animation: slide-in 0.1s forwards infinite;
+    animation-play-state: paused;
+  /* Bind the animation to scroll */
+  animation-delay: calc(var(--scroll) * -1s);
+  /* These last 2 properites clean up overshoot weirdness */
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
 }
 
 @media (max-width: 50em) {
