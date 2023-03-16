@@ -161,9 +161,9 @@ p {
 }
 
 .button[data-type="inverted"] {
-  background: none;
-  color: var(--clr-primary-400);
-  border: 1px solid var(--clr-grey-300);
+  background-color: var(--clr-neutral-100) !important;
+  color: var(--clr-grey-400);
+  border: 1px solid var(--clr-grey-400);
   border-radius: 20px;
 }
 

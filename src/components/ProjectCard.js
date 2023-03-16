@@ -33,7 +33,7 @@ const ProjectCard = ({ name, description, stacks, coverArt, projectRepoLInk, pro
                 </div>
                 <div className="project_button-container">
                     <a onMouseLeave={buttonMouseLeave} onMouseMove={buttonAnimation} 
-                    href={projectRepoLInk} target="_blank" rel="noreferrer" className="button">View code</a>
+                    href={projectRepoLInk} data-type="inverted" target="_blank" rel="noreferrer" className="button">View code</a>
                     <a onMouseLeave={buttonMouseLeave} onMouseMove={buttonAnimation} 
                     href={projectLiveLink} target="_blank" rel="noreferrer" className="button">View live</a>
                 </div>
