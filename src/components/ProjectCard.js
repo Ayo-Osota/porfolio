@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useGlobalContext } from "../context/context";
 
 
-const ProjectCard = ({ name, description, stacks, coverArt, projectRepoLInk, projectLiveLink }) => {
+const ProjectCard = ({ name, description, stacks, coverArt, projectRepoLink, projectLiveLink }) => {
     const {buttonAnimation, buttonMouseLeave} = useGlobalContext();
     const sortedStacks = stacks.map(stack => stack.toLowerCase()).sort();
 
@@ -33,7 +33,7 @@ const ProjectCard = ({ name, description, stacks, coverArt, projectRepoLInk, pro
                 </div>
                 <div className="project_button-container">
                     <a onMouseLeave={buttonMouseLeave} onMouseMove={buttonAnimation} 
-                    href={projectRepoLInk} data-type="inverted" target="_blank" rel="noreferrer" className="button">View code</a>
+                    href={projectRepoLink} data-type="inverted" target="_blank" rel="noreferrer" className="button">View code</a>
                     <a onMouseLeave={buttonMouseLeave} onMouseMove={buttonAnimation} 
                     href={projectLiveLink} target="_blank" rel="noreferrer" className="button">View live</a>
                 </div>

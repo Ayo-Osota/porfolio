@@ -1,4 +1,4 @@
-import artsyCover from "./assets/covers/artsy.png";
+// import artsyCover from "./assets/covers/artsy.png";
 import musicaCover from "./assets/covers/musica.png";
 import archiparkCover from "./assets/covers/archipark.jpeg";
 import minimumLivingCostCover from "./assets/covers/minimum-living-cost.png";
