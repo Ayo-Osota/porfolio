@@ -9,33 +9,6 @@ const userAccessToken = "BQAvq6DX0MWWl_9cKVtb1GASx90DVoKKG-kO9OIfsDhGdUjC83r2qaK
 export const SpotifyNowPlaying = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [beat, setBeat] = useState({});
-    //     useEffect(() => {
-    //         Promise.all([
-    //             getNowPlayingItem(
-    //                 props.client_id,
-    //                 props.client_secret,
-    //                 props.refresh_token
-    //             ),
-    //         ]).then((results) => {
-    //             setResult(results[0]);
-    //             setLoading(false);
-    //             console.log(results);
-    //         });
-    //     });
-
-    // fetch("https://api.spotify.com/v1/me/player/currently-playing", {
-    //     method: "GET",
-    //     headers: {
-    //         Authorization: `Bearer ${userAccessToken}`
-    //     }
-    // })
-    //     .then(response => response.json())
-    //     .then(({ beat }) => {
-    //         //   beats.forEach((beat, index) => {
-    //         //     console.log(`Beat ${index} starts at ${beat.start}`);
-    //         //   })
-    //         console.log(beat);
-    //     })
 
     const getNowPlayingItem = async () => {
         setIsLoading(true);
@@ -46,14 +19,12 @@ export const SpotifyNowPlaying = () => {
             }
         })
         const beat = await response.json();
-        console.log(beat.item.name);
         setIsLoading(false);
         setBeat(beat);
     }
 
     useEffect(() => {
         getNowPlayingItem()
-        console.log(beat);
     }, []);
 
     return (
@@ -78,7 +49,7 @@ export const SpotifyNowPlaying = () => {
                                         <span></span>
                                         <span></span>
                                     </div>
-                                    <a href={beat.item.external_urls.spotify} target="_blank">{beat.item.name}</a>
+                                    <a rel="noreferrer" href={beat.item.external_urls.spotify} target="_blank">{beat.item.name}</a>
                                 </div>
                                 <p>{beat.item.artists.map((_artist) => _artist.name).join(", ")}</p>
                             </article>
