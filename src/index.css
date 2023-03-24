@@ -625,3 +625,21 @@ p {
     background-color: var(--clr-bg-light);
   }
 }
+
+@keyframes spotify-playing {
+  10% {
+    transform: scaleY(0.3);
+  }
+  30% {
+    transform: scaleY(1);
+  }
+  60% {
+    transform: scaleY(0.5);
+  }
+  80% {
+    transform: scaleY(0.75);
+  }
+  100% {
+    transform: scaleY(0.5);
+  }
+}

@@ -3,13 +3,14 @@ import heroImage from "../assets/hero-image.png";
 import htmlReactImage from "../assets/html-to-react.png";
 import cv from "../assets/CV.docx";
 import { useGlobalContext } from "../context/context";
+import { SpotifyNowPlaying } from "./SpotiifyNowPlaying";
 
 const HeroSection = () => {
     const { buttonAnimation, buttonMouseLeave } = useGlobalContext();
 
     window.addEventListener('scroll', () => {
         document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight * 5 - window.innerHeight));
-      }, false);
+    }, false);
 
     return (
         <HeroContainer id="about" className="container even-columns section-mt">
@@ -36,23 +37,27 @@ const HeroSection = () => {
                     Download CV (22.4kb)
                 </a>
             </div>
-            <div className="hero-banner" style={{ backgroundImage: `url(${htmlReactImage})` }}>
-                <div>
-                    <article>
-                        Say No more
-                    </article>
-                    <article>
-                        I'm Your guy💯
-                    </article>
-                </div>
-                <div><img src={heroImage} alt="hero" /></div>
-                <div>
-                    <article>
-                        Hire me Today
-                    </article>
-                    <article>
-                        Dev wey Sabi
-                    </article>
+            <div>
+                <SpotifyNowPlaying />
+                <div className="hero-banner" style={{ backgroundImage: `url(${htmlReactImage})` }}>
+
+                    <div>
+                        <article>
+                            Say No more
+                        </article>
+                        <article>
+                            I'm Your guy💯
+                        </article>
+                    </div>
+                    <div><img src={heroImage} alt="hero" /></div>
+                    <div>
+                        <article>
+                            Hire me Today
+                        </article>
+                        <article>
+                            Dev wey Sabi
+                        </article>
+                    </div>
                 </div>
             </div>
         </HeroContainer>
