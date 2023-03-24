@@ -40,6 +40,12 @@ const navLinks = [
     },
     {
         id: 4,
+        type: "route",
+        text: 'Playground',
+        url: '/playground',
+    },
+    {
+        id: 5,
         type: "onPage",
         text: 'Contact me',
         url: '#contact',
@@ -214,4 +220,19 @@ const shopifyArticleContent = [
     "What's more? You can find solutions to any issues you might face from Shopify's award winning support team. Additionally, your store is in safe hands because Shopify offers safety and reliability with security measures in place to protect sensitive customer data."
 ]
 
-export { navLinks, socialMedia, projects, footerMenu, testimonials, shopifyArticleContent }
+const codePenData = [
+    {
+        id: "1",
+        hash: "ZEMRPNg",
+        user: "ayo_osota",
+        title: "Spotlight button"
+    },
+    {
+        id: "2",
+        hash: "vYzQRPB",
+        user: "ayo_osota",
+        title: "Vibrating button"
+    }
+]
+
+export { navLinks, socialMedia, projects, footerMenu, testimonials, shopifyArticleContent, codePenData }

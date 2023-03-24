@@ -8,7 +8,7 @@ const HeroSection = () => {
     const { buttonAnimation, buttonMouseLeave } = useGlobalContext();
 
     window.addEventListener('scroll', () => {
-        document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
+        document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight * 5 - window.innerHeight));
       }, false);
 
     return (
@@ -21,11 +21,9 @@ const HeroSection = () => {
                     Front-End Developer Specializing in User-Friendly Web Experiences
                 </h1>
                 <p className="fs-400 ff-primary">
-                    I create beautiful, functional, and mobile-friendly websites using
-                    React, HTML, CSS, and JavaScript.
+                    I create beautiful, functional, and mobile-friendly websites.
                     From responsive designs to optimized performance,
-                    I'm passionate about bringing your vision to life.
-                    With expertise in React, I can build dynamic, interactive user interfaces
+                    I'm passionate about bringing your vision to life by building dynamic, interactive user interfaces
                     that engage your audience. Let's collaborate to create a web experience
                     that truly stands out - whether revamping an existing site or starting from scratch.
                 </p>
@@ -35,7 +33,7 @@ const HeroSection = () => {
                     onMouseLeave={buttonMouseLeave}
                     onMouseMove={buttonAnimation}
                     className="button">
-                    Download CV (70kb)
+                    Download CV (22.4kb)
                 </a>
             </div>
             <div className="hero-banner" style={{ backgroundImage: `url(${htmlReactImage})` }}>
@@ -144,7 +142,7 @@ const HeroContainer = styled.section`
 
 .hero-banner > div:nth-child(2) > img {
     transform: translate(100%);
-    animation: slide-in 0.1s forwards infinite;
+    animation: slide-in 0.1s reverse forwards infinite;
     animation-play-state: paused;
   /* Bind the animation to scroll */
   animation-delay: calc(var(--scroll) * -1s);
@@ -166,6 +164,10 @@ const HeroContainer = styled.section`
     
     .hero-banner > div:last-child {
         margin-left: 0;
+    }
+
+    .hero-banner > div:nth-child(2) > img {
+        animation-direction: normal;
     }
 }
 `

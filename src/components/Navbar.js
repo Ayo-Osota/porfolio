@@ -66,7 +66,7 @@ const Topnav = styled.div`
 margin-top: 2.5rem;
 display: grid;
 grid-auto-flow: column;
-grid-template-columns: 2fr 1fr;
+grid-template-columns: 1fr 1fr;
 
 nav > ul.flex {
     gap: 0.625rem;

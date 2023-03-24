@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Footer from "./components/Footer";
 import Shopify from "./pages/Shopify";
 import Header from "./components/Header";
+import Magic from "./pages/Magic";
 
 function App() {
   // window.addEventListener('scroll', () => {
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/shopify" element={<Shopify />} />
+          <Route exact path="/playground" element={<Magic />} />
         </Routes>
         <Footer />
       </BrowserRouter>
