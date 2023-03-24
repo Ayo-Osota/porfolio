@@ -38,12 +38,12 @@ const navLinks = [
         text: 'Shopify',
         url: '/shopify',
     },
-    {
-        id: 4,
-        type: "route",
-        text: 'Playground',
-        url: '/playground',
-    },
+    // {
+    //     id: 4,
+    //     type: "route",
+    //     text: 'Playground',
+    //     url: '/playground',
+    // },
     {
         id: 5,
         type: "onPage",
