@@ -3,7 +3,7 @@ import heroImage from "../assets/hero-image.png";
 import htmlReactImage from "../assets/html-to-react.png";
 import cv from "../assets/CV.docx";
 import { useGlobalContext } from "../context/context";
-import { SpotifyNowPlaying } from "./SpotiifyNowPlaying";
+// import { SpotifyNowPlaying } from "./SpotiifyNowPlaying";
 
 const HeroSection = () => {
     const { buttonAnimation, buttonMouseLeave } = useGlobalContext();
@@ -37,8 +37,8 @@ const HeroSection = () => {
                     Download CV (22.4kb)
                 </a>
             </div>
-            <div>
-                <SpotifyNowPlaying />
+            {/* <div> */}
+                {/* <SpotifyNowPlaying /> */}
                 <div className="hero-banner" style={{ backgroundImage: `url(${htmlReactImage})` }}>
 
                     <div>
@@ -59,7 +59,7 @@ const HeroSection = () => {
                         </article>
                     </div>
                 </div>
-            </div>
+            {/* </div> */}
         </HeroContainer>
     )
 }

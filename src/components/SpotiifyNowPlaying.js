@@ -4,7 +4,7 @@ import styled from "styled-components";
 import SpotifyLogo from "./SpotifyLogo";
 // // import SpotifyPlayingAnimation from "./SpotifyPlayingAnimation";
 const url = "https://api.spotify.com/v1/me/player/currently-playing";
-const userAccessToken = "BQAvq6DX0MWWl_9cKVtb1GASx90DVoKKG-kO9OIfsDhGdUjC83r2qaKBnYkRcor_8__VzO6seYEDggylZsD73-ZE_5755_gRfHhH_I8Q8nlbYzf7VyaZbKTyMhYsHzqcPe1oDiPo41lNFao4TuPkZEWAPFFCM5aQLZdFNctAhS2eC6BCapM1akFDBMRlEwWhRHlmb8APB6Wucw";
+const userAccessToken = "BQA4_hKAyeQg5SXQEx7BEabSc5MmR59ci8RlgEHMA4v4JMZkYtqFSjJfserlefE4jQZWdj6WCGrryOJMLjv4sSYMecu39YHHtY55RTBJLs_dAXtRTGBYz_0uH4OgLvC-VKIfHcBqkAcj-60F22A-zYovl12ycy1O2_3Mpa0ov77iopmV-405rgtOypCL0jPeOjq1bQipk_qncg";
 
 export const SpotifyNowPlaying = () => {
     const [isLoading, setIsLoading] = useState(true);
