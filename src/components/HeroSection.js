@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import heroImage from "../assets/hero-image.png";
 import htmlReactImage from "../assets/html-to-react.png";
-import cv from "../assets/CV.docx";
+import cv from "../assets/CV.pdf";
 import { useGlobalContext } from "../context/context";
 // import { SpotifyNowPlaying } from "./SpotiifyNowPlaying";
 
@@ -34,7 +34,7 @@ const HeroSection = () => {
                     onMouseLeave={buttonMouseLeave}
                     onMouseMove={buttonAnimation}
                     className="button">
-                    Download CV (22.4kb)
+                    Download CV (352kb)
                 </a>
             </div>
             {/* <div> */}

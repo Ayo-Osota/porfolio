@@ -25,7 +25,7 @@ const ProjectCard = ({ name, description, stacks, coverArt, projectRepoLink, pro
                     <div className="flex">
                         {sortedStacks.map((stack, i) => {
                             return (
-                                <i key={i} className={`devicon-${stack}-plain${stack !== "javascript" ? "-wordmark" : ""} colored`}
+                                <i key={i} className={`devicon-${stack}-plain${stack !== "javascript" && stack !== "tailwindcss" ? "-wordmark" : ""} colored`}
                                 ></i>
                             )
                         })}

@@ -7,6 +7,7 @@ import pawCareCover from "./assets/covers/paw-care.jpg";
 import pawCareSite from "./assets/site-image/paw-care.jpg";
 import artsySite from "./assets/site-image/artsy.jpg";
 import minimumLivingCostSite from "./assets/site-image/minimum-living-cost.jpg";
+import ultiverseDemo from "./assets/site-image/ultiverse-demo.png";
 
 
 import {
@@ -30,7 +31,7 @@ const navLinks = [
         id: 2,
         type: "onPage",
         text: 'Projects',
-        url: '#projects',
+        url: './#projects',
     },
     {
         id: 3,
@@ -48,7 +49,7 @@ const navLinks = [
         id: 5,
         type: "onPage",
         text: 'Contact me',
-        url: '#contact',
+        url: './#contact',
     }
 ]
 
@@ -57,13 +58,13 @@ const footerMenu = [
         id: 1,
         type: "onPage",
         text: 'About',
-        url: '#about',
+        url: './#about',
     },
     {
         id: 2,
         type: "onPage",
         text: 'Projects',
-        url: '#projects',
+        url: './#projects',
     },
     {
         id: 3,
@@ -75,7 +76,7 @@ const footerMenu = [
         id: 4,
         type: "onPage",
         text: 'Contact me',
-        url: '#contact',
+        url: './#contact',
     }
 ]
 
@@ -134,6 +135,15 @@ const projects = [
     //     projectRepoLink: "",
     //     projectLiveLink: ""
     // },
+    {
+        id: 7,
+        name: "Ultiverse Demo",
+        description: "UTILIZING METAFI, UE5, AND WEB3 TECHNOLOGY TO CREATE A SOCIAL AND IMMERSIVE GAMING METAVERSE.",
+        stacks: ["Nextjs", "tailwindcss"],
+        coverArt: ultiverseDemo,
+        projectRepoLink: "https://github.com/Ayo-Osota/UltiVerse-demo",
+        projectLiveLink: "https://ultiverse-olive.vercel.app/"
+    },
     {
         id: 2,
         name: "Musica",
