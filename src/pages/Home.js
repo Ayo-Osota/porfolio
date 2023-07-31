@@ -10,6 +10,8 @@ const Home = () => {
             <ProjectsSection/>
             <Testimonial/>
             <Contact/>
+            <img src="src/assets/motun.jpeg" alt="" />
+            <img src="src/assets/motun-sign.jpeg" alt="" />
         </main>
     )
 }
