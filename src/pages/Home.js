@@ -12,8 +12,6 @@ const Home = () => {
             <ProjectsSection/>
             <Testimonial/>
             <Contact/>
-            <img src={motun} alt="sigh" />
-            <img src={motunSign} alt=""sigh />
         </main>
     )
 }
