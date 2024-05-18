@@ -4,7 +4,8 @@
   --clr-neutral-100: #ffffff;
   --clr-bg-light: #f8f7f3;
   --clr-bg-dark: rgb(48, 48, 48);
-  --clr-bg-button: rgb(233, 231, 220);
+  --clr-bg-button: #010066;
+  /* --clr-bg-button: rgb(233, 231, 220); */
   --clr-bg-input: #FCFCFC;
   --text-accent: #717CB8;
 
@@ -156,7 +157,7 @@ p {
   font-weight: var(--fw-bold);
   font-size: var(--fs-button);
   line-height: 1;
-  color: var(--clr-grey-400);
+  color: #FFFFFF;
   background-color: var(--clr-bg-button);
 }
 
@@ -197,7 +198,7 @@ p {
 
 .container {
   --max-width: 1280px;
-  --padding: 0.5rem;
+  --padding: 1.5rem;
 
   width: min(var(--max-width), 100% - (var(--padding) * 2));
   margin: 0 auto;
@@ -614,7 +615,7 @@ p {
   from {
     opacity: 0;
   }
-  
+
   to {
     opacity: 1;
   }
@@ -630,16 +631,25 @@ p {
   10% {
     transform: scaleY(0.3);
   }
+
   30% {
     transform: scaleY(1);
   }
+
   60% {
     transform: scaleY(0.5);
   }
+
   80% {
     transform: scaleY(0.75);
   }
+
   100% {
     transform: scaleY(0.5);
   }
+}
+
+.hero-image {
+  width: 345px;
+  height: 403px;
 }

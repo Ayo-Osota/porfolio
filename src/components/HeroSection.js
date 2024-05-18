@@ -13,60 +13,67 @@ const HeroSection = () => {
     }, false);
 
     return (
-        <HeroContainer id="about" className="container even-columns section-mt">
-            <div className="flow">
-                <h4 className="fs-500 ff-header">
-                    Hi, I'm Osota Ayomikun, a Front-End Developer.
-                </h4>
-                <h1 className="fs-primary-heading ff-header">
-                    Front-End Developer Specializing in User-Friendly Web Experiences
-                </h1>
-                <p className="fs-400 ff-primary">
-                    I create beautiful, functional, and mobile-friendly websites.
-                    From responsive designs to optimized performance,
-                    I'm passionate about bringing your vision to life by building dynamic, interactive user interfaces
-                    that engage your audience. Let's collaborate to create a web experience
-                    that truly stands out - whether revamping an existing site or starting from scratch.
-                </p>
-                <a
-                    href={cv}
-                    download="Osota_Ayomikun CV"
-                    onMouseLeave={buttonMouseLeave}
-                    onMouseMove={buttonAnimation}
-                    className="button">
-                    Download CV (352kb)
-                </a>
-            </div>
+        <HeroContainer id="about" className="container even-columns">
+            <div className="wrapper">
+                <div className="flow">
+                    <h4 className="fs-500 ff-header">
+                        Osota Ayomikun: Software engineer.
+                    </h4>
+                    <h1 className="fs-600 ff-header">
+                        UI/UX architecture | Performance optimization | Funtionality.
+                    </h1>
+                    <p className="fs-400 ff-primary">
+                        I specialize in crafting high-performance web & mobile applications with a focus on intuitive,
+                        user-centric design.
+                        Let's partner to elevate your digital presence with seamless,
+                        engaging experiences that deliver measurable results.
+                    </p>
+                    <a
+                        href={cv}
+                        download="Osota_Ayomikun CV"
+                        onMouseLeave={buttonMouseLeave}
+                        onMouseMove={buttonAnimation}
+                        className="button">
+                        Download CV (352kb)
+                    </a>
+                </div></div>
             {/* <div> */}
-                {/* <SpotifyNowPlaying /> */}
-                <div className="hero-banner" style={{ backgroundImage: `url(${htmlReactImage})` }}>
+            {/* <SpotifyNowPlaying /> */}
+            <div className="hero-banner" style={{ backgroundImage: `url(${htmlReactImage})` }}>
 
-                    <div>
-                        <article>
-                            Say No more
-                        </article>
-                        <article>
-                            I'm Your guy💯
-                        </article>
-                    </div>
-                    <div><img src={heroImage} alt="hero" /></div>
-                    <div>
-                        <article>
-                            Hire me Today
-                        </article>
-                        <article>
-                            Dev wey Sabi
-                        </article>
-                    </div>
+                <div>
+                    <article>
+                        Say No more
+                    </article>
+                    <article>
+                        I'm Your guy💯
+                    </article>
                 </div>
+                <div><img src={heroImage} alt="hero" className="hero-image" /></div>
+                <div>
+                    <article>
+                        Hire me Today
+                    </article>
+                    <article>
+                        Dev wey Sabi
+                    </article>
+                </div>
+            </div>
             {/* </div> */}
         </HeroContainer>
     )
 }
 
 const HeroContainer = styled.section`
+margin-top: 3.5rem;
 .flow {
     overflow: hidden;
+}
+
+.wrapper {
+    height: 542px;
+    display: flex;
+    align-items: center;
 }
 
 .fs-500 {
@@ -82,6 +89,7 @@ const HeroContainer = styled.section`
 .fs-400 {
     transform: translateX(-100%);
     animation: slide-in 1.5s ease-in-out 0.8s forwards;
+    max-width: 42ch;
 }
 
 .button {
@@ -157,6 +165,10 @@ const HeroContainer = styled.section`
 }
 
 @media (max-width: 50em) {
+    .wrapper {
+        height: fit-content;
+    }
+
     .hero-banner {
         padding-left: 0;
         gap: 0.5rem;

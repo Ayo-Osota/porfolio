@@ -3,12 +3,12 @@ import { useGlobalContext } from "../context/context";
 
 
 const ProjectCard = ({ name, description, stacks, coverArt, projectRepoLink, projectLiveLink }) => {
-    const {buttonAnimation, buttonMouseLeave} = useGlobalContext();
+    const { buttonAnimation, buttonMouseLeave } = useGlobalContext();
     const sortedStacks = stacks.map(stack => stack.toLowerCase()).sort();
 
     window.addEventListener('scroll', () => {
         document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
-      }, false);
+    }, false);
 
     return (
         <Card>
@@ -20,7 +20,7 @@ const ProjectCard = ({ name, description, stacks, coverArt, projectRepoLink, pro
             <article>
                 <h2 className="fs-secondary-heading fw-bold ff-header">{name}</h2>
                 <p className="fs-400 fw-medium">{description}</p>
-                <div className="stacks-container">
+                {/* <div className="stacks-container">
                     <p>Built with:</p>
                     <div className="flex">
                         {sortedStacks.map((stack, i) => {
@@ -30,12 +30,12 @@ const ProjectCard = ({ name, description, stacks, coverArt, projectRepoLink, pro
                             )
                         })}
                     </div>
-                </div>
+                </div> */}
                 <div className="project_button-container">
-                    <a onMouseLeave={buttonMouseLeave} onMouseMove={buttonAnimation} 
-                    href={projectRepoLink} data-type="inverted" target="_blank" rel="noreferrer" className="button">View code</a>
-                    <a onMouseLeave={buttonMouseLeave} onMouseMove={buttonAnimation} 
-                    href={projectLiveLink} target="_blank" rel="noreferrer" className="button">View live</a>
+                    {/* <a onMouseLeave={buttonMouseLeave} onMouseMove={buttonAnimation}
+                        href={projectRepoLink} data-type="inverted" target="_blank" rel="noreferrer" className="button">View code</a> */}
+                    <a onMouseLeave={buttonMouseLeave} onMouseMove={buttonAnimation}
+                        href={projectLiveLink} target="_blank" rel="noreferrer" className="button">Read more</a>
                 </div>
             </article>
         </Card>
@@ -74,6 +74,7 @@ article {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding-bottom: 16px;
 }
 
 .stacks-container .flex {

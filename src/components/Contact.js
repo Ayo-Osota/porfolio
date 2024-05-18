@@ -11,7 +11,7 @@ const Contact = () => {
     return (
         <ContactSection id="contact" className="section-mt container">
             <h1 className="fs-primary-heading ff-header fw-bold text-center">
-                Get In Touch If You're Looking For A  <span className="text-accent">Front End Developer</span>
+                Work With  <span className="text-accent">Me</span>
             </h1>
             <div className="even-columns">
                 {state.succeeded ?

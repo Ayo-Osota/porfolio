@@ -6,10 +6,10 @@ import Testimonial from "../components/Testimonial";
 const Home = () => {
     return (
         <main>
-            <HeroSection/>
-            <ProjectsSection/>
-            <Testimonial/>
-            <Contact/>
+            <HeroSection />
+            <ProjectsSection />
+            {/* <Testimonial/> */}
+            <Contact />
         </main>
     )
 }

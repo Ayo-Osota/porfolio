@@ -8,6 +8,7 @@ import pawCareSite from "./assets/site-image/paw-care.jpg";
 import artsySite from "./assets/site-image/artsy.jpg";
 import minimumLivingCostSite from "./assets/site-image/minimum-living-cost.jpg";
 import ultiverseDemo from "./assets/site-image/ultiverse-demo.png";
+import boxEks from "./assets/BoxEks.jpg";
 
 
 import {
@@ -125,7 +126,7 @@ const socialMedia = [
     }
 ]
 
-const projects = [
+const projectsno = [
     // {
     //     id: 1,
     //     name: "Artsy",
@@ -181,6 +182,17 @@ const projects = [
         projectLiveLink: "https://paw-friends99.netlify.app/"
     }
 ]
+
+const projects = [
+    {
+        id: 1,
+        name: "Gaming",
+        description: "A photography gallery that serves creators and collectors of art and photography generally. Flip through more than 10,000 vintage shots, old photograghs, historic images and captures seamlessly in one place. Register to get top access.",
+        stacks: ["React", "javaScript", "css3", "bootstrap"],
+        coverArt: boxEks,
+        projectRepoLink: "",
+        projectLiveLink: "https://www.instagram.com/boxeks_gaming/"
+    },]
 
 const testimonials = [
     {
