@@ -70,7 +70,7 @@ const Topnav = styled.div`
 // position: fixed;
 // top: 0;
 // left: 0;
-// width: 100%;
+width: 100%;
 // display: flex;
 
 .container {
@@ -84,7 +84,9 @@ nav > ul.flex {
 }
 
 @media (max-width: 50em) {
+.container {
     display: flex;
     justify-content: space-between;
   }
+}
 `
