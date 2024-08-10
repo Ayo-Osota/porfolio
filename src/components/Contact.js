@@ -41,7 +41,7 @@ const Contact = () => {
                 <div>
                     <img src={contactImage} alt="Digital lifestyle" />
                     <p className="fs-500 text-center">
-                        You can also reach out to me via social medias just a click below
+                        You can also reach out to me via social media just a click below
                     </p>
                     <ul role="list" className="flex social-links-wrapper">
                         {socialMedia.map((socialMedium) => {

@@ -3,39 +3,39 @@ import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
 const Sidenav = ({ isSidebarOpen, toggleSidebar }) => {
-    return (
-        <SidebarContainer>
-            <aside className={isSidebarOpen ? "sidebar show-sidebar" : "sidebar"}>
-                <nav>
-                    <ul role="list" className='flex'>
-                        {navLinks.map((navLink) => {
-                            const { id, type, text, url } = navLink;
-                            return (
-                                <li key={id}>
-                                    {type === "route" ?
-                                        <Link onClick={toggleSidebar} className='nav-link' to={url}>{text}</Link> :
-                                        <a onClick={toggleSidebar} className='nav-link' href={url}>{text}</a>
-                                    }
-                                </li>
-                            )
-                        })}
-                    </ul>
-                </nav>
-                <nav className="nav_social-media">
-                    <ul role="list" className="flex">
-                        {socialMedia.map((socialMedium) => {
-                            const { id, icon, link } = socialMedium;
-                            return (
-                                <li key={id}>
-                                    <a onClick={toggleSidebar} href={link}>{icon}</a>
-                                </li>
-                            )
-                        })}
-                    </ul>
-                </nav>
-            </aside>
-        </SidebarContainer>
-    )
+  return (
+    <SidebarContainer>
+      <aside className={isSidebarOpen ? "sidebar show-sidebar" : "sidebar"}>
+        <nav>
+          <ul role="list" className='flex'>
+            {navLinks.map((navLink) => {
+              const { id, type, text, url } = navLink;
+              return (
+                <li key={id}>
+                  {type === "route" ?
+                    <Link onClick={toggleSidebar} className='nav-link' to={url}>{text}</Link> :
+                    <a onClick={toggleSidebar} className='nav-link' href={url}>{text}</a>
+                  }
+                </li>
+              )
+            })}
+          </ul>
+        </nav>
+        <nav className="nav_social-media">
+          <ul role="list" className="flex">
+            {socialMedia.map((socialMedium) => {
+              const { id, icon, link } = socialMedium;
+              return (
+                <li key={id}>
+                  <a onClick={toggleSidebar} href={link}>{icon}</a>
+                </li>
+              )
+            })}
+          </ul>
+        </nav>
+      </aside>
+    </SidebarContainer>
+  )
 }
 
 const SidebarContainer = styled.div`
@@ -74,12 +74,11 @@ const SidebarContainer = styled.div`
     font-size: var(--fs-400);
     width: 100%;
     padding: 2rem;
-    border-bottom: 1px solid var(--clr-bg-dark);
   }
 
-  nav > ul li:first-child .nav-link {
-    border-top: 1px solid var(--clr-bg-dark);
-  }
+  // nav > ul li:first-child .nav-link {
+  //   border-top: 1px solid var(--clr-bg-dark);
+  // }
 
   .nav-link::after {
     display: none;

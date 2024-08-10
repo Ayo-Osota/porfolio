@@ -1,8 +1,9 @@
 :root {
   --clr-primary-400: #000000;
-  --clr-grey-400: #3a3a3a;
+  --clr-grey-400: #010101;
   --clr-neutral-100: #ffffff;
-  --clr-bg-light: #f8f7f3;
+  /* --clr-bg-light: #f8f7f3; */
+  --clr-bg-light: #d5d5d5;
   --clr-bg-dark: rgb(48, 48, 48);
   --clr-bg-button: #010066;
   /* --clr-bg-button: rgb(233, 231, 220); */

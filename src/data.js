@@ -32,7 +32,7 @@ const navLinks = [
         id: 2,
         type: "onPage",
         text: 'Projects',
-        url: './#projects',
+        url: 'https://github.com/Ayo-Osota',
     },
     {
         id: 3,
@@ -65,7 +65,7 @@ const footerMenu = [
         id: 2,
         type: "onPage",
         text: 'Projects',
-        url: './#projects',
+        url: 'https://github.com/Ayo-Osota',
     },
     {
         id: 3,

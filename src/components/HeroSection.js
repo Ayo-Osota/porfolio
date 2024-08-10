@@ -3,14 +3,30 @@ import heroImage from "../assets/hero-image.png";
 import htmlReactImage from "../assets/html-to-react.png";
 import cv from "../assets/CV.pdf";
 import { useGlobalContext } from "../context/context";
+import { useEffect } from "react";
 // import { SpotifyNowPlaying } from "./SpotiifyNowPlaying";
 
 const HeroSection = () => {
     const { buttonAnimation, buttonMouseLeave } = useGlobalContext();
 
-    window.addEventListener('scroll', () => {
-        document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight * 5 - window.innerHeight));
-    }, false);
+    // window.addEventListener('scroll', () => {
+    //     document.body.style.setProperty('--scroll', window.scrollY / (document.body.offsetHeight * 5 - window.innerHeight));
+    // }, false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            document.body.style.setProperty(
+                '--scroll',
+                window.scrollY / (document.body.offsetHeight * 7 - window.innerHeight)
+            );
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return (
         <HeroContainer id="about" className="container even-columns">
@@ -29,12 +45,17 @@ const HeroSection = () => {
                         engaging experiences that deliver measurable results.
                     </p>
                     <a
-                        href={cv}
-                        download="Osota_Ayomikun CV"
+                        href='https://docs.google.com/document/d/14jFsj54hK4qvAdWCX-Hz_XCbVW9vcU69/edit?usp=sharing&ouid=115608837326937811637&rtpof=true&sd=true'
                         onMouseLeave={buttonMouseLeave}
                         onMouseMove={buttonAnimation}
+                        target="_blank" rel="noreferrer"
                         className="button">
-                        Download CV (352kb)
+                        View My CV
+                    </a>
+                    <a onMouseLeave={buttonMouseLeave} onMouseMove={buttonAnimation}
+                        href='https://github.com/Ayo-Osota' data-type="inverted" target="_blank" rel="noreferrer" className="button link-to-github">
+                        <span>View My Github</span>
+
                     </a>
                 </div></div>
             {/* <div> */}
@@ -93,7 +114,7 @@ margin-top: 3.5rem;
 }
 
 .button {
-    margin-left: 0.125rem;
+margin-top: 2.5rem;
     opacity: 1;
     animation: fade-in 1s ease-in;
 }
@@ -151,6 +172,7 @@ margin-top: 3.5rem;
 
 .hero-banner > div:nth-child(2) {
     overflow: hidden;
+   width: 200px;
 }
 
 .hero-banner > div:nth-child(2) > img {
@@ -165,6 +187,17 @@ margin-top: 3.5rem;
 }
 
 @media (max-width: 50em) {
+.link-to-github {
+display: none;
+}
+.hero-banner {
+max-width: 100%;
+    overflow: hidden;
+}
+.hero-banner > div:nth-child(2) {
+    overflow: hidden;
+   width: 200px;
+}
     .wrapper {
         height: fit-content;
     }
@@ -187,6 +220,11 @@ margin-top: 3.5rem;
         animation-direction: normal;
     }
 }
+
+.button+.button {
+margin-left: 1.5rem;
+}
 `
+
 
 export default HeroSection;
