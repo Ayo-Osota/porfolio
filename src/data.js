@@ -37,9 +37,15 @@ const navLinks = [
     {
         id: 3,
         type: "route",
-        text: 'Shopify',
-        url: '/shopify',
+        text: 'Blog',
+        url: 'https://ayoosota.hashnode.dev/',
     },
+    // {
+    //     id: 3,
+    //     type: "route",
+    //     text: 'Shopify',
+    //     url: '/shopify',
+    // },
     // {
     //     id: 4,
     //     type: "route",
