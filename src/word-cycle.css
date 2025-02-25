@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
+@import url("https://unpkg.com/normalize.css") layer(normalize);
+
+@layer normalize, base, stick, effect, srollbar;
+
+@layer scrollbar {
+  @property --hue {
+    initial-value: 0;
+    syntax: "<number>";
+    inherits: false;
+  }
+  @property --chroma {
+    initial-value: 0;
+    syntax: "<number>";
+    inherits: true;
+  }
+
+  @supports (animation-timeline: scroll()) and (animation-range: 0% 100%) {
+    html {
+      scrollbar-color: oklch(40% 0.1 var(--hue)) #0000;
+    }
+  }
+}
+
+@layer effect {
+  :root {
+    --start: 0;
+    --end: 360;
+    --lightness: 40%;
+    --base-chroma: 0.5;
+    --count: 10;
+  }
+  .word-cycle ul {
+    --step: calc((var(--end) - var(--start)) / (var(--count) - 1));
+  }
+  .word-cycle li:not(:last-of-type) {
+    color: oklch(
+      var(--lightness) var(--base-chroma)
+        calc(var(--start) + (var(--step) * var(--i)))
+    );
+  }
+
+  @supports (animation-timeline: scroll()) and (animation-range: 0% 100%) {
+    .word-cycle li {
+      opacity: 0.2;
+      animation-name: brighten;
+
+      &:first-of-type {
+        --start-opacity: 1;
+      }
+      &:last-of-type {
+        --brightness: 1;
+        --end-opacity: 1;
+      }
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+      animation-range: cover calc(50% - 1lh) calc(50% + 1lh);
+      animation-timeline: view();
+    }
+  }
+
+  @keyframes brighten {
+    0% {
+      opacity: var(--start-opacity, 0.2);
+    }
+    50% {
+      opacity: 1;
+      filter: brightness(var(--brightness, 1.2));
+    }
+    100% {
+      opacity: var(--end-opacity, 0.2);
+    }
+  }
+}
+
+@layer stick {
+  .word-cycle {
+    --font-level: 6;
+    display: flex;
+    line-height: 1.25;
+    width: 100%;
+    padding-left: 5rem;
+  }
+
+  .word-cycle ul {
+    font-weight: 600;
+    padding-inline: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+
+  html {
+    scroll-snap-type: y proximity;
+
+    .word-cycle li {
+      scroll-snap-align: center;
+    }
+  }
+
+  .word-cycle li:last-of-type {
+    background: linear-gradient(
+      canvasText 50%,
+      color-mix(in oklch, canvas, canvasText 25%)
+    );
+    background-clip: text;
+    color: #0000;
+  }
+}
+
+@layer base {
+  :root {
+    --font-size-min: 14;
+    --font-size-max: 20;
+    --font-ratio-min: 1.1;
+    --font-ratio-max: 1.33;
+    --font-width-min: 375;
+    --font-width-max: 1500;
+  }
+
+  /* Remove default margin */
+  * {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  :where(.fluid) {
+    --fluid-min: calc(
+      var(--font-size-min) * pow(var(--font-ratio-min), var(--font-level, 0))
+    );
+    --fluid-max: calc(
+      var(--font-size-max) * pow(var(--font-ratio-max), var(--font-level, 0))
+    );
+    --fluid-preferred: calc(
+      (var(--fluid-max) - var(--fluid-min)) /
+        (var(--font-width-max) - var(--font-width-min))
+    );
+    --fluid-type: clamp(
+      (var(--fluid-min) / 16) * 1rem,
+      ((var(--fluid-min) / 16) * 1rem) -
+        (((var(--fluid-preferred) * var(--font-width-min)) / 16) * 1rem) +
+        (var(--fluid-preferred) * var(--variable-unit, 100vi)),
+      (var(--fluid-max) / 16) * 1rem
+    );
+    font-size: var(--fluid-type);
+  }
+
+  .word-cycle {
+    font-family: "Geist", "SF Pro Text", "SF Pro Icons", "AOS Icons",
+      "Helvetica Neue", Helvetica, Arial, sans-serif, system-ui;
+  }
+
+  .word-cycle h2 {
+    position: sticky;
+    top: calc(50% - 0.22lh);
+    font-size: inherit;
+    display: inline-block;
+    height: fit-content;
+    font-weight: 600;
+    margin: 0px;
+  }
+
+  .word-cycle li {
+    font-size: inherit;
+  }
+
+  body::before {
+    --size: 45px;
+    --line: color-mix(in hsl, canvasText, transparent 70%);
+    content: "";
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background: linear-gradient(
+          90deg,
+          var(--line) 1px,
+          transparent 1px var(--size)
+        )
+        50% 50% / var(--size) var(--size),
+      linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
+        var(--size) var(--size);
+    mask: linear-gradient(-20deg, transparent 50%, white);
+    top: 0;
+    transform-style: flat;
+    pointer-events: none;
+    z-index: -1;
+  }
+}
