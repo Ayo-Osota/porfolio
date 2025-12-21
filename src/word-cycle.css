@@ -44,6 +44,7 @@
     .word-cycle li {
       opacity: 0.2;
       animation-name: brighten;
+      will-change: opacity, filter;
 
       &:first-of-type {
         --start-opacity: 1;
@@ -164,8 +165,12 @@
     margin: 0px;
   }
 
-  .word-cycle li {
-    font-size: inherit;
+  .word-cycle-prefix {
+    position: absolute;
+    display: inline-block;
+    margin-right: 0.25em;
+    line-height: 1;
+    vertical-align: text-bottom;
   }
 
   body::before {

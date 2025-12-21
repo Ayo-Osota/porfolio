@@ -10,9 +10,11 @@ const words = [
   "build.",
   "design.",
   "debug.",
+  "document.",
   "optimize.",
   "test.",
   "fix.",
+  "write.",
   "launch.",
   "scale.",
 ];

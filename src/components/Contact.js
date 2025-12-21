@@ -146,7 +146,7 @@ const ContactSection = styled.section`
   }
 
   .social-links-wrapper {
-    width: 80%;
+    width: 60%;
     margin-top: 1.375rem;
   }
 

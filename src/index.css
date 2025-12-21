@@ -198,6 +198,19 @@ p {
   margin: 0 auto;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  width: 0 !important;
+  display: none;
+}
+.no-scrollbar {
+  overflow: -moz-scrollbars-none;
+  scrollbar-width: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 :where(.flow > :not(:first-child)) {
   margin-top: var(--flow-spacer, 1.5rem);
 }
