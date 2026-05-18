@@ -1,234 +1,110 @@
 import styled from "styled-components";
-import heroImage from "../assets/hero-image.png";
-import htmlReactImage from "../assets/html-to-react.png";
-import cv from "../assets/CV.pdf";
-import { useGlobalContext } from "../context/context";
-import { useEffect } from "react";
-// import { SpotifyNowPlaying } from "./SpotiifyNowPlaying";
+import home from "../content/home";
+import BlueprintGrid from "./primitives/BlueprintGrid";
+import WordCycle from "./WordCycle";
 
 const HeroSection = () => {
-  const { buttonAnimation, buttonMouseLeave } = useGlobalContext();
-
-  // window.addEventListener('scroll', () => {
-  //     document.body.style.setProperty('--scroll', window.scrollY / (document.body.offsetHeight * 5 - window.innerHeight));
-  // }, false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      document.body.style.setProperty(
-        "--scroll",
-        window.scrollY / (document.body.offsetHeight * 7 - window.innerHeight)
-      );
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
+  const { tagline, subline, primaryCta } = home.hero;
   return (
-    <HeroContainer id="about" className="container even-columns">
-      <div className="wrapper">
-        <div className="flow">
-          <h4 className="fs-500 ff-header">
-            Osota Ayomikun: Software engineer.
-          </h4>
-          <h1 className="fs-600 ff-header">
-            UI/UX architecture | Performance optimization | Funtionality.
-          </h1>
-          <p className="fs-400 ff-primary">
-            I specialize in crafting high-performance web & mobile applications
-            with a focus on intuitive, user-centric design. Let's partner to
-            elevate your digital presence with seamless, engaging experiences
-            that deliver measurable results.
-          </p>
-          <a
-            href="https://cal.com/ayo-osota"
-            onMouseLeave={buttonMouseLeave}
-            onMouseMove={buttonAnimation}
-            target="_blank"
-            rel="noreferrer"
-            className="button"
-          >
-            Book a call
+    <Hero>
+      <BlueprintGrid />
+      <div className="inner">
+        <p className="eyebrow">Automations Architect — Ayo Osota</p>
+        <h1>{tagline}</h1>
+        <p className="subline">{subline}</p>
+        <WordCycle />
+        <div className="cta-row">
+          <a className="cta-primary" href={primaryCta.to}>
+            {primaryCta.label}
           </a>
-          <a
-            onMouseLeave={buttonMouseLeave}
-            onMouseMove={buttonAnimation}
-            href="https://github.com/Ayo-Osota"
-            data-type="inverted"
-            target="_blank"
-            rel="noreferrer"
-            className="button link-to-github"
-          >
-            <span>View My Github</span>
+          <a className="cta-secondary" href="/quadrant">
+            Or — find your box first
           </a>
         </div>
       </div>
-      {/* <div> */}
-      {/* <SpotifyNowPlaying /> */}
-      <div
-        className="hero-banner"
-        style={{ backgroundImage: `url(${htmlReactImage})` }}
-      >
-        <div>
-          <article>Say No more</article>
-          <article>I'm Your guy💯</article>
-        </div>
-        <div>
-          <img src={heroImage} alt="hero" className="hero-image" />
-        </div>
-        <div>
-          <article>Hire me Today</article>
-          <article>Dev wey Sabi</article>
-        </div>
-      </div>
-      {/* </div> */}
-    </HeroContainer>
+    </Hero>
   );
 };
 
-const HeroContainer = styled.section`
-  margin-top: 3.5rem;
-  .flow {
-    overflow: hidden;
+export default HeroSection;
+
+const Hero = styled.section`
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-16) 0 var(--space-12);
+  border-bottom: 1px solid var(--rule);
+
+  .inner {
+    width: min(1280px, 100% - 3rem);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
   }
 
-  .wrapper {
-    height: 542px;
+  .eyebrow {
+    margin: 0 0 1.5rem;
+    font-family: var(--font-sans);
+    font-size: var(--type-12);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  h1 {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: clamp(var(--type-44), 6.5vw, var(--type-84));
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    max-width: 20ch;
+  }
+
+  .subline {
+    margin: 2rem 0 0;
+    font-family: var(--font-sans);
+    font-size: clamp(var(--type-16), 1.5vw, var(--type-20));
+    line-height: 1.6;
+    color: var(--ink);
+    max-width: 54ch;
+  }
+
+  .cta-row {
+    margin-top: var(--space-8);
     display: flex;
+    gap: 1rem;
     align-items: center;
+    flex-wrap: wrap;
   }
 
-  .fs-500 {
-    transform: translateX(-100%);
-    animation: slide-in 1.5s ease-in-out forwards;
+  .cta-primary {
+    display: inline-block;
+    background-color: var(--accent);
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    padding: 0.875rem 1.5rem;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: var(--type-16);
+    text-decoration: none;
+    transition: background-color var(--motion-base) var(--easing),
+      color var(--motion-base) var(--easing);
+  }
+  .cta-primary:hover {
+    background-color: var(--ink);
+    color: var(--accent);
   }
 
-  .fs-primary-heading {
-    transform: translateX(-100%);
-    animation: slide-in 1.5s ease-in-out 0.4s forwards;
+  .cta-secondary {
+    color: var(--ink);
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-size: var(--type-14);
+    font-weight: 600;
+    border-bottom: 1px solid var(--ink-soft);
+    padding-bottom: 0.15rem;
   }
-
-  .fs-400 {
-    transform: translateX(-100%);
-    animation: slide-in 1.5s ease-in-out 0.8s forwards;
-    max-width: 42ch;
-  }
-
-  .button {
-    margin-top: 2.5rem;
-    opacity: 1;
-    animation: fade-in 1s ease-in;
-  }
-
-  .hero-banner {
-    padding-left: 2.3125rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.6875rem;
-  }
-
-  .hero-banner > div:not(:nth-child(2)) {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .hero-banner > div:first-child {
-    gap: 9.25rem;
-  }
-
-  .hero-banner > div:last-child {
-    padding-top: 3.2rem;
-    margin-left: 2.3125rem;
-    gap: 13.0625rem;
-  }
-
-  .hero-banner article {
-    padding: 1.125rem 1.5rem;
-    border-radius: 1.33rem 1.33rem 0px 1.33rem;
-    opacity: 0;
-    font-size: var(--fs-300);
-    white-space: nowrap;
-  }
-
-  .hero-banner > div:first-child > article:first-child {
-    background: hsl(125, 71%, 66%);
-    animation: fade-in 0.8s ease-in 1s forwards;
-  }
-
-  .hero-banner > div:first-child > article:last-child {
-    background: #eae6eb;
-    animation: fade-in 0.4s ease-in 2s forwards;
-  }
-
-  .hero-banner > div:last-child > article:first-child {
-    background: #f4ad97;
-    animation: fade-in 0.4s ease-in 2.2s forwards;
-  }
-
-  .hero-banner > div:last-child > article:last-child {
-    background: hsl(360, 71%, 66%);
-    animation: fade-in 0.4s ease-in 1.6s forwards;
-  }
-
-  .hero-banner > div:nth-child(2) {
-    overflow: hidden;
-    width: 200px;
-  }
-
-  .hero-banner > div:nth-child(2) > img {
-    transform: translate(100%);
-    animation: slide-in 0.1s reverse forwards infinite;
-    animation-play-state: paused;
-    /* Bind the animation to scroll */
-    animation-delay: calc(var(--scroll) * -1s);
-    /* These last 2 properites clean up overshoot weirdness */
-    animation-iteration-count: 1;
-    animation-fill-mode: both;
-  }
-
-  @media (max-width: 50em) {
-    .link-to-github {
-      display: none;
-    }
-    .hero-banner {
-      max-width: 100%;
-      overflow: hidden;
-    }
-    .hero-banner > div:nth-child(2) {
-      overflow: hidden;
-      width: 200px;
-    }
-    .wrapper {
-      height: fit-content;
-    }
-
-    .hero-banner {
-      padding-left: 0;
-      gap: 0.5rem;
-    }
-
-    .hero-banner article {
-      padding: 0.5rem;
-      border-radius: 0.8rem 0.8rem 0px 0.8rem;
-    }
-
-    .hero-banner > div:last-child {
-      margin-left: 0;
-    }
-
-    .hero-banner > div:nth-child(2) > img {
-      animation-direction: normal;
-    }
-  }
-
-  .button + .button {
-    margin-left: 1.5rem;
+  .cta-secondary:hover {
+    border-bottom-color: var(--ink);
   }
 `;
-
-export default HeroSection;

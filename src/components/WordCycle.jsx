@@ -1,78 +1,69 @@
-import React, { useEffect, useRef } from "react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import "../word-cycle.css";
+import { useEffect, useState } from "react";
+import styled from "styled-components";
+import home from "../content/home";
 
-gsap.registerPlugin(ScrollTrigger);
-
-const words = [
-  "code.",
-  "build.",
-  "design.",
-  "debug.",
-  "document.",
-  "optimize.",
-  "test.",
-  "fix.",
-  "write.",
-  "launch.",
-  "scale.",
-];
+const CYCLE_MS = 1800;
+const RESOLVE_PAUSE_MS = 1500;
 
 const WordCycle = () => {
-  const listRef = useRef(null);
+  const { prefix, words, resolution } = home.hero.wordCycle;
+  const [index, setIndex] = useState(0);
+  const [resolved, setResolved] = useState(false);
 
   useEffect(() => {
-    const items = gsap.utils.toArray(listRef.current.children);
-
-    gsap.set(items, { opacity: (i) => (i !== 0 ? 0.2 : 1) });
-
-    const dimmer = gsap
-      .timeline()
-      .to(items.slice(1), { opacity: 1, stagger: 0.5 })
-      .to(items.slice(0, items.length - 1), { opacity: 0.2, stagger: 0.5 }, 0);
-
-    ScrollTrigger.create({
-      trigger: items[0],
-      endTrigger: items[items.length - 1],
-      start: "top center",
-      end: "bottom center",
-      animation: dimmer,
-      scrub: 0.2,
-    });
-
-    const scroller = gsap
-      .timeline()
-      .fromTo(
-        document.documentElement,
-        { "--hue": 0 },
-        { "--hue": 240, ease: "none" }
-      );
-
-    ScrollTrigger.create({
-      trigger: items[0],
-      endTrigger: items[items.length - 1],
-      start: "top center",
-      end: "bottom center",
-      animation: scroller,
-      scrub: 0.2,
-    });
-  }, []);
+    let timer;
+    if (resolved) {
+      timer = setTimeout(() => {
+        setResolved(false);
+        setIndex(0);
+      }, RESOLVE_PAUSE_MS);
+    } else {
+      timer = setTimeout(() => {
+        if (index >= words.length - 1) {
+          setResolved(true);
+        } else {
+          setIndex((i) => i + 1);
+        }
+      }, CYCLE_MS);
+    }
+    return () => clearTimeout(timer);
+  }, [index, resolved, words.length]);
 
   return (
-    <section className="container section-mt word-cycle fluid">
-      <h2>
-        <span aria-hidden="true">i&nbsp;</span>
-      </h2>
-      <ul ref={listRef}>
-        {words.map((word, index) => (
-          <li style={{ "--i": index }} key={index}>
-            {word}
-          </li>
-        ))}
-      </ul>
-    </section>
+    <Cycle aria-live="polite">
+      <span className="prefix">{prefix}&nbsp;</span>
+      <span className={resolved ? "word resolved" : "word"}>
+        {resolved ? resolution : words[index]}
+      </span>
+      <span className="dot">.</span>
+    </Cycle>
   );
 };
 
 export default WordCycle;
+
+const Cycle = styled.p`
+  margin: 1.5rem 0 0;
+  font-family: var(--font-serif);
+  font-size: clamp(var(--type-20), 2.5vw, var(--type-32));
+  line-height: 1.2;
+  color: var(--ink);
+
+  .prefix {
+    color: var(--ink-soft);
+  }
+  .word {
+    color: var(--ink);
+    font-style: italic;
+    transition: color var(--motion-base) var(--easing);
+  }
+  .word.resolved {
+    color: var(--ink);
+    font-style: normal;
+    background-color: var(--accent);
+    padding: 0 0.25rem;
+  }
+  .dot {
+    color: var(--ink);
+  }
+`;

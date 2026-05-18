@@ -1,0 +1,52 @@
+// Plain-language rules applied across all visible site copy.
+// Banned words must not appear in: page bodies, hero lines, form labels,
+// button labels, headings, CTAs, footer text, FAQ answers, case studies.
+// Exempt: the internal Business Framework markdown, code comments, identifiers.
+
+export const bannedWords = [
+  "bottleneck",
+  "leverage",
+  "streamline",
+  "optimize",
+  "seamless",
+  "robust",
+  "ecosystem",
+  "synergy",
+  "holistic",
+  "utilize",
+  "facilitate",
+  "paradigm",
+  "empower",
+  "actionable",
+  "cutting-edge",
+  "frictionless",
+  "scalable",
+  "revolutionary",
+  "disrupt",
+  "unlock",
+  "supercharge",
+];
+
+export const approvedAlternatives = {
+  bottleneck: "the work only you can do / what's stuck with you",
+  leverage: "use",
+  streamline: "make simpler / clean up",
+  optimize: "tune / make better",
+  seamless: "easy / feels like one tool",
+  robust: "holds up / doesn't break",
+  ecosystem: "the tools your business runs on",
+  synergy: "(just remove)",
+  holistic: "whole-picture / end-to-end",
+  utilize: "use",
+  facilitate: "help",
+  paradigm: "way of working",
+  empower: "give them what they need",
+  actionable: "you can act on it",
+  "cutting-edge": "new",
+  frictionless: "easy",
+  scalable: "grows with you",
+  revolutionary: "new / different",
+  disrupt: "change",
+  unlock: "open up",
+  supercharge: "speed up",
+};
