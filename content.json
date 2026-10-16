@@ -1,0 +1,79 @@
+{
+  "site": {
+    "name": "Ayo Osota",
+    "url": "https://ayoosota.com",
+    "language": "en",
+    "themeColor": "#D4A72C",
+    "phone": "",
+    "email": "hello@ayoosota.com",
+    "address": {
+      "street": "",
+      "city": "Waterloo",
+      "region": "Ontario",
+      "postalCode": "",
+      "country": "Canada"
+    },
+    "hours": [],
+    "social": [
+      "https://www.linkedin.com/in/ayo-osota/",
+      "https://x.com/Ayo_Osota",
+      "https://www.tiktok.com/@ayo-osota"
+    ],
+    "nav": [
+      {
+        "label": "Websites",
+        "href": "websites/"
+      },
+      {
+        "label": "About",
+        "href": "about/"
+      }
+    ],
+    "headerCta": "Email me",
+    "footer": {
+      "emailLabel": "Email me",
+      "elsewhereLabel": "Elsewhere",
+      "basedLabel": "Based in",
+      "based": "Ayo Osota, Waterloo, Ontario",
+      "copyright": "© 2026 Ayo Osota"
+    }
+  },
+  "pages": {
+    "home": {
+      "seo": {
+        "title": "Ayo Osota · AI automation and same-day websites",
+        "description": "Ayo Osota builds AI workflow automation and same-day websites for owner-operated businesses, from Waterloo, Ontario. Email for a free quote."
+      },
+      "sections": {}
+    },
+    "about": {
+      "seo": {
+        "title": "About Ayo Osota · AI automation and websites",
+        "description": "Ayo Osota is a senior full-stack engineer in Waterloo, Ontario, building AI workflow automation and same-day websites for owner-operated businesses."
+      }
+    },
+    "websites": {
+      "seo": {
+        "title": "Websites · Ayo Osota",
+        "description": "Skills that let you build your own website with Claude, custom skills for your business, and same-day websites if you would rather hire Ayo Osota."
+      }
+    }
+  },
+  "microcopy": {
+    "skipLink": "Skip to main content",
+    "notFoundTitle": "That page isn't here.",
+    "notFoundBody": "Go back to the home page, or email hello@ayoosota.com.",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "homeLink": "Back to the home page",
+    "notFoundCta": "Back to the home page"
+  },
+  "waitingOnYou": [
+    "Employer logos for Milantia and MKW: you said not to add",
+    "Resume link",
+    "Care plan decision",
+    "Hand-designed site starting price",
+    "TikTok profile URL",
+    "Domain and email confirmation"
+  ]
+}
